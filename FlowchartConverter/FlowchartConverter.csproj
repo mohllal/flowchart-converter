@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\AssignDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AssignDialog.Designer.cs">
+      <DependentUpon>AssignDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\InputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
