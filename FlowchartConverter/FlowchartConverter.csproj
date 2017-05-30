@@ -58,6 +58,12 @@
     <Compile Include="Dialogs\DeclareDialog.Designer.cs">
       <DependentUpon>DeclareDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DoDialog.Designer.cs">
+      <DependentUpon>DoDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ForDialog.cs">
       <SubType>Form</SubType>
     </Compile>
