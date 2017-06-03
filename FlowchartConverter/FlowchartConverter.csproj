@@ -101,6 +101,8 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Nodes\BaseNode.cs" />
+    <Compile Include="Nodes\ConnectorNode.cs" />
+    <Compile Include="Nodes\HolderNode.cs" />
     <Compile Include="Nodes\TerminalNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
