@@ -107,6 +107,8 @@
     <Compile Include="Nodes\HolderNode.cs" />
     <Compile Include="Nodes\IfElseNode.cs" />
     <Compile Include="Nodes\IfNode.cs" />
+    <Compile Include="Nodes\InputNode.cs" />
+    <Compile Include="Nodes\OutputNode.cs" />
     <Compile Include="Nodes\TerminalNode.cs" />
     <Compile Include="Nodes\WhileNode.cs" />
     <Compile Include="Program.cs" />
