@@ -104,6 +104,8 @@
     <Compile Include="Nodes\BaseNode.cs" />
     <Compile Include="Nodes\ConnectorNode.cs" />
     <Compile Include="Nodes\DecisionNode.cs" />
+    <Compile Include="Nodes\DoNode.cs" />
+    <Compile Include="Nodes\ForNode.cs" />
     <Compile Include="Nodes\HolderNode.cs" />
     <Compile Include="Nodes\IfElseNode.cs" />
     <Compile Include="Nodes\IfNode.cs" />
