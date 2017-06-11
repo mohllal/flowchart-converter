@@ -19,6 +19,7 @@ namespace FlowchartConverter.Dialogs
         public InputDialog()
         {
             InitializeComponent();
+            InitializeDialog();
         }
 
         private void InitializeDialog()
