@@ -357,6 +357,15 @@ namespace FlowchartConverter.Nodes
             this.NodeLocation = new PointF(this.NodeLocation.X + distance, this.NodeLocation.Y);
         }
 
-        public virtual void onShapeClicked() {}
+        public virtual void onShapeClicked()
+        {
+            if (this.Shape.Selected && Controller.DeleteChoosed)
+            {
+
+                this.removeFromModel();
+                Controller.DeleteChoosed = false;
+                this.Shape.Selected = false;
+            }
+        }
     }
 }
