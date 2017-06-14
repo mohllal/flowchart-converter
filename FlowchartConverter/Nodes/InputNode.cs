@@ -28,6 +28,18 @@ namespace FlowchartConverter.Nodes
             base.setText("Read " + Statement);
         }
 
-        public override void onShapeClicked() { }
+        public override void onShapeClicked()
+        {
+            base.onShapeClicked();
+            if (base.Shape.Selected)
+            {
+                InputDialog db = new InputDialog();
+                DialogResult dr = db.ShowDialog();
+
+                if (dr == DialogResult.OK)
+                    base.Statement = db.InputVariable;
+            }
+            base.Shape.Selected = false;
+        }
     }
 }
