@@ -27,6 +27,20 @@ namespace FlowchartConverter.Nodes
             base.setText("Print " + Statement);
         }
 
-        public override void onShapeClicked() { }
+        public override void onShapeClicked()
+        {
+            base.onShapeClicked();
+            if (base.Shape.Selected)
+            {
+                OutputDialog od = new OutputDialog();
+                DialogResult dr = od.ShowDialog();
+
+                if (dr == DialogResult.OK)
+                    base.Statement = od.OutputExpression;
+
+                base.Shape.Selected = false;
+            }
+            base.Shape.Selected = false;
+        }
     }
 }
