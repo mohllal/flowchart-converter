@@ -22,6 +22,26 @@ namespace FlowchartConverter.Nodes
             base.setText("Assign");
         }
 
-        public override void onShapeClicked() { }
+        public override void onShapeClicked()
+        {
+            base.onShapeClicked();
+            if (base.Shape.Selected)
+            {
+                AssignDialog db = new AssignDialog();
+                DialogResult dr = db.ShowDialog();
+
+                if (dr == DialogResult.OK)
+                {
+                    if (String.IsNullOrEmpty(db.AssignmentVariable) || String.IsNullOrEmpty(db.AssignmentExpression)
+                        || String.IsNullOrWhiteSpace(db.AssignmentVariable) || String.IsNullOrWhiteSpace(db.AssignmentExpression))
+                    {
+                        MessageBox.Show("You must enter a valid assignment expression");
+                        return;
+                    }
+                    base.Statement = db.AssignmentVariable + " = " + db.AssignmentExpression;
+                }
+            }
+            base.Shape.Selected = false;
+        }
     }
 }
