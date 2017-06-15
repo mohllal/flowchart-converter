@@ -1,4 +1,5 @@
 ﻿using Crainiate.Diagramming;
+using FlowchartConverter.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -143,10 +144,25 @@ namespace FlowchartConverter.Nodes
 
         public static BaseNode getPickedNode()
         {
-            //To be implemented
-            return null;
+            BaseNode toAttachNode = null;
+            PickerDialog pd = new PickerDialog();
+            DialogResult res = pd.ShowDialog();
+            if (res != DialogResult.OK)
+                return null;
+            toAttachNode = pd.SelectedShape;
+
+            return toAttachNode;
         }
 
-        public void onShapeClicked() { }
+        public void onShapeClicked()
+        {
+            if (!this.connector.Selected || !this.selectable || Controller.AllowMove == true)
+                return;
+            BaseNode node = getPickedNode();
+            if (node == null)
+                return;
+            this.addNewNode(node);
+            this.connector.Selected = false;
+        }
     }
 }
