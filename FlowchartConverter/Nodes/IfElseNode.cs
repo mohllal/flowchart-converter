@@ -1,10 +1,12 @@
 ﻿using Crainiate.Diagramming.Flowcharting;
+using FlowchartConverter.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FlowchartConverter.Nodes
 {
@@ -200,6 +202,35 @@ namespace FlowchartConverter.Nodes
             this.BackfalseNode.addToModel();
         }
 
-        public override void onShapeClicked() { }
+        public override void onShapeClicked()
+        {
+            base.onShapeClicked();
+            if (base.Shape.Selected)
+            {
+
+                IfDialog ifBox = new IfDialog();
+                DialogResult dr = ifBox.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    base.Statement = ifBox.DecisionExpression;
+                    base.setText(Statement);
+                }
+            }
+            base.Shape.Selected = false;
+        }
+
+        private String surrondExpression(String str)
+        {
+            return "if ( " + str + " )";
+        }
+
+        private String extractExpression(String str)
+        {
+            if (String.IsNullOrEmpty(str))
+                return str;
+            String res = str.Remove(0, 5);
+            res = res.Remove(res.Count() - 1);
+            return res;
+        }
     }
 }
