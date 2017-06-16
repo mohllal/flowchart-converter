@@ -1,9 +1,11 @@
-﻿using System;
+﻿using FlowchartConverter.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FlowchartConverter.Nodes
 {
@@ -72,7 +74,27 @@ namespace FlowchartConverter.Nodes
 
         public override void onShapeClicked()
         {
-            //To be implemented 
+            base.onShapeClicked();
+            if (base.Shape.Selected)
+            {
+                WhileDialog whileBox = new WhileDialog();
+                DialogResult dr = whileBox.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    base.Statement = whileBox.LoopExpression;
+                    base.setText(Statement);
+                }
+            }
+            base.Shape.Selected = false;
+        }
+
+        private string extractExpression(string str)
+        {
+            if (String.IsNullOrEmpty(str))
+                return str;
+            string res = str.Remove(0, 8);
+            res = res.Remove(res.Count() - 1);
+            return res;
         }
     }
 }
