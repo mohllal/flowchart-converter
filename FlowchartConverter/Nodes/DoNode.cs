@@ -113,7 +113,43 @@ namespace FlowchartConverter.Nodes
             this.shiftMainTrack();
         }
 
-        public override void onShapeClicked() {}
+        public override void onShapeClicked()
+        {
+            if (base.Shape.Selected && Controller.DeleteChoosed)
+            {
+                base.removeFromModel();
+                Controller.DeleteChoosed = false;
+                base.Shape.Selected = false;
+
+            }
+
+            if (base.Shape.Selected)
+            {
+                DoDialog doWhileBox = new DoDialog();
+                DialogResult dr = doWhileBox.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    base.Statement = doWhileBox.LoopExpression;
+                    base.setText(Statement);
+                }
+            }
+            base.Shape.Selected = false;
+        }
+
+        private string surrondExpression(string str)
+        {
+            return "while ( " + str + " );";
+        }
+
+        private string extractExpression(string str)
+        {
+            if (String.IsNullOrEmpty(str))
+                return str;
+
+            string res = str.Remove(0, 8);
+            res = res.Remove(res.Count() - 2);
+            return res;
+        }
     }
 
 }
