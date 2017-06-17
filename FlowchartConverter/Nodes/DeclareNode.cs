@@ -15,7 +15,7 @@ namespace FlowchartConverter.Nodes
     {
         public class Variable
         {
-            private enum Data_Type { INTEGER, STRING, REAL, BOOLEAN, CHAR }
+            public enum Data_Type { INTEGER, STRING, REAL, BOOLEAN, CHAR }
 
             private String varName;
             private Data_Type varType;

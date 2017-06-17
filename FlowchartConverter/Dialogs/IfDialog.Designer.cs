@@ -155,6 +155,6 @@
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Label description_label;
         private System.Windows.Forms.TextBox expression_text;
-        private System.Windows.Forms.Label expression_label;m
+        private System.Windows.Forms.Label expression_label;
     }
 }
