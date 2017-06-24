@@ -275,8 +275,10 @@ namespace FlowchartConverter.Nodes
         {
             if (this is TerminalNode && newNode is TerminalNode || this is HolderNode && newNode is HolderNode)
             {
-                if (newNode.connectedShape() == null || this.connectedShape() == null)
-                    //do nothing
+                if (newNode.connectedShape() == null) ;
+                //do nothing
+                if (this.connectedShape() == null) ;
+                    //donothing
                 this.OutConnector.EndNode = newNode;
                 newNode.NodeLocation = this.NodeLocation;
                 newNode.shiftDown(0);

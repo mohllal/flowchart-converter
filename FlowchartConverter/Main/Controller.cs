@@ -82,6 +82,7 @@ namespace FlowchartConverter.Main
             this.diagram = diagram1;
             this.Model = diagram1.Model;
             this.initializeProject();
+            new OutputNode();
         }
 
         public void initializeProject()
