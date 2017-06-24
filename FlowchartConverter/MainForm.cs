@@ -17,8 +17,6 @@ namespace FlowchartConverter
     public partial class MainForm : Form
     {
         private Main.Controller controller;
-        private TerminalNode terminalS;
-        private TerminalNode terminalE;
 
         public MainForm()
         {
@@ -32,14 +30,10 @@ namespace FlowchartConverter
 
         private void diagram1_MouseClick_1(object sender, MouseEventArgs e)
         {
-        }
-
-        private void xmlBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void onLoad_click(object sender, EventArgs e)
-        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                controller.cancelClickedButtons();
+            }
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -54,10 +48,29 @@ namespace FlowchartConverter
 
         private void open_button_Click(object sender, EventArgs e)
         {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Xml Source (*.xml)|*.xml";
+            string path = null;
+            if (DialogResult.OK == opf.ShowDialog())
+            {
+                path = opf.FileName;
+            }
+            else
+            {
+                return;
+            }
+
+            controller.loadProject(path);
         }
 
         private void save_button_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Xml Source (*.xml)|*.xml";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                controller.saveProject(saveFileDialog.FileName);
+            else
+                return;
         }
 
         private void move_button_Click(object sender, EventArgs e)

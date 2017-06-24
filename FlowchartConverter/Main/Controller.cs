@@ -1,11 +1,13 @@
 ﻿using Crainiate.Diagramming;
 using Crainiate.Diagramming.Forms;
 using FlowchartConverter.Nodes;
+using FlowchartConverter.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FlowchartConverter.Main
 {
@@ -101,8 +103,28 @@ namespace FlowchartConverter.Main
 
         public void newProject()
         {
+            initializeProject();
+            diagram.Controller.Refresh();
+        }
+
+        public void saveProject(string path)
+        {
+            Saver ps = new Saver(this, terminalS, terminalE, path);
+        }
+
+        public void loadProject(string path)
+        {
+            this.LoadingProject = true;
             this.initializeProject();
+            Loader projectLoader = new Loader(terminalS, terminalE, path);
             this.diagram.Controller.Refresh();
+            this.LoadingProject = false;
+        }
+
+        public void cancelClickedButtons()
+        {
+            this.DeleteChoosed = false;
+            this.AllowMove = false;
         }
 
         public void shiftNodesRight(BaseNode shiftNode, bool exculdeNode, int distance = 150)
@@ -225,6 +247,11 @@ namespace FlowchartConverter.Main
                 if (node is IfElseNode && node.NodeLocation.X < 100)
                     this.shiftNodesRight(node, false, 150);
             }
+        }
+
+        public void showErrorMsg(string str)
+        {
+            MessageBox.Show("Error in Controller Class");
         }
     }
 }
