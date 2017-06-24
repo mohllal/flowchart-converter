@@ -65,7 +65,7 @@ namespace FlowchartConverter.Nodes
             this.MiddleNode.NodeLocation = new PointF(base.Shape.Center.X - this.MiddleNode.Shape.Width / 2, 
                 base.Shape.Center.Y - this.MiddleNode.Shape.Size.Height / 2);
 
-            this.moveConnections();
+            base.moveConnections();
 
             this.MiddleNode.NodeLocation = new PointF(this.MiddleNode.NodeLocation.X, base.BackNode.NodeLocation.Y);
 
