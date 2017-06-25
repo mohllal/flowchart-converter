@@ -32,7 +32,7 @@ namespace FlowchartConverter.Utilities
             choosenCode = CSHARP;
             StringBuilder sb = new StringBuilder();
             indentation = 8;
-            string[] seperators = new String[] { "\r\n" };
+            string[] seperators = new String[] { "\n" };
             string[] lines = Resources.CsCode.Split(seperators, StringSplitOptions.None);
             for (int i = 0; i < 7; i++)
             {
@@ -46,9 +46,7 @@ namespace FlowchartConverter.Utilities
                 sb.Append(lines[i]);
                 sb.Append("\r\n");
             }
-            //sb.Append("}");
-
-            File.WriteAllText(@"F:\code.txt", sb.ToString());
+            //File.WriteAllText(@"F:\code.txt", sb.ToString());
             return sb.ToString();
         }
 

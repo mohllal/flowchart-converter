@@ -24,10 +24,6 @@ namespace FlowchartConverter
             controller = new Main.Controller(diagram1);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-        }
-
         private void diagram1_MouseClick_1(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -90,6 +86,12 @@ namespace FlowchartConverter
 
         private void sourceCodeButton_Click(object sender, EventArgs e)
         {
+            string cppStr = controller.getCode(Main.Controller.Language.CPP);
+            string cSharpStr = controller.getCode(Main.Controller.Language.CSHARP);
+            CodeForm code = new CodeForm();
+            code.setMeta(cppStr, cSharpStr);
+            code.set(cppStr);
+            code.Show();
         }
 
         private void export_button_Click(object sender, EventArgs e)
