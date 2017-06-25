@@ -79,6 +79,8 @@ namespace FlowchartConverter.Main
 
         public bool LoadingProject { get; internal set; }
 
+        public enum Language { CPP, CSHARP };
+
         public Controller(Diagram diagram1)
         {
             this.diagram = diagram1;
@@ -119,6 +121,18 @@ namespace FlowchartConverter.Main
             Loader projectLoader = new Loader(terminalS, terminalE, path);
             this.diagram.Controller.Refresh();
             this.LoadingProject = false;
+        }
+
+        public string getCode(Language lang)
+        {
+            switch (lang)
+            {
+                case Language.CPP:
+                    return CodeGenerator.getCppCode(terminalS, terminalE);
+                case Language.CSHARP:
+                    return CodeGenerator.getCsCode(terminalS, terminalE);
+            }
+            return null;
         }
 
         public void cancelClickedButtons()
