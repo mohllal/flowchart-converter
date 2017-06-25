@@ -24,6 +24,9 @@ namespace FlowchartConverter
         public CodeForm()
         {
             InitializeComponent();
+            this.code_combo.SelectedItem = "C++";
+            this.selectedCode = "C++";
+            compiler = CSharpCompiler.getInstance();
         }
 
         public void setMeta(String cppStr, String cSharpStr)
