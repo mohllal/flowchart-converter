@@ -1,5 +1,5 @@
-# FlowchartConverter
-FlowchartConverter is a WinForms application that helps users create programs using simple flowcharts.
+# Flowchart Converter
+Flowchart Converter is a WinForms application that helps users create programs using simple flowcharts.
 
 Depending on the programming language, this can be either easy or quite difficult for a beginning programmer. Many languages require to write lines upon lines of confusing code just to get it to display "Hello, world!".
 
@@ -22,7 +22,6 @@ The application was built on [.NET framework 4.5.2](https://www.microsoft.com/en
 	- Flowcharts can be exported to JPG image.
 	- Programs can be saved and loaded using XML.
 
-
 ### Shapes:
 - Assignment
 - Declare
@@ -33,7 +32,6 @@ The application was built on [.NET framework 4.5.2](https://www.microsoft.com/en
 - Input
 - Output
 - While
-
 
 ### Built With:
 - [Open Diagram](https://opendiagram.codeplex.com/): Open Diagram is the definitive open source .net diagramming component library for the .Net framework winforms environment.
